@@ -1,1 +1,0 @@
-# rishblol.github.io
