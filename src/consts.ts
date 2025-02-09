@@ -23,7 +23,7 @@ export const SITE: Site = {
 }
 
 export const NAV_LINKS: Link[] = [
-  { href: '/blog', label: 'blog' },
+  { href: '/blog', label: 'blogs' },
   { href: '/about', label: 'about' }
   
 ]
