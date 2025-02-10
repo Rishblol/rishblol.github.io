@@ -42,7 +42,7 @@ const projects = await getCollection('projects')
 
         <h2 class="mb-4 text-2xl font-semibold">My Projects</h2>
         <div class="flex flex-col gap-4">
-          <p>I'll add projects geez chill out</p>
+          {projects.map((project) => <ProjectCard project={project} />)}
         </div>
       </div>
     </section>
