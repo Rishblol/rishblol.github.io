@@ -39,33 +39,27 @@ import SocialIcons from './SocialIcons.astro'
       </div>
       <SocialIcons links={SOCIAL_LINKS} />
     </div>
-      <div class="text-center text-sm text-muted-foreground">
-        This website is part of <Link
-          href="https://amrita.town/"
-          class="text-foreground"
-          external
-          underline>amrita.town</Link
-        >
-      <p class="text-center text-sm text-muted-foreground">
-        <Link
-          href="https://amrita.town/prev"
-          class="text-foreground"
-          external
-          underline>← prev</Link
-        >
-        <Link
-          href="https://amrita.town/random"
-          class="text-foreground"
-          external
-          underline>⚅ random</Link
-        >
-        <Link
-          href="https://amrita.town/next"
-          class="text-foreground"
-          external
-          underline>next →</Link
-        >
-      </p>
+    <div class="flex flex-col items-center space-y-2 text-sm text-muted-foreground">
+      <Link
+        href="https://amrita.town/"
+        class="text-foreground text-lg"
+        external
+        underline
+      >
+        amrita.town
+      </Link>
+      <div class="flex space-x-4">
+        <Link href="https://amrita.town/prev" class="text-foreground" external>
+          ←
+        </Link>
+        <Link href="https://amrita.town/random" class="text-foreground" external>
+          ⚅
+        </Link>
+        <Link href="https://amrita.town/next" class="text-foreground" external>
+          →
+        </Link>
       </div>
+    </div>
+    
   </Container>
 </footer>
