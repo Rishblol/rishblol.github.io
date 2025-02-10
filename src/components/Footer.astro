@@ -39,7 +39,7 @@ import SocialIcons from './SocialIcons.astro'
       </div>
       <SocialIcons links={SOCIAL_LINKS} />
     </div>
-    <div class="flex flex-col items-center space-y-2 text-sm text-muted-foreground">
+    <div class="flex items-center justify-between w-full text-sm text-muted-foreground">
       <Link
         href="https://amrita.town/"
         class="text-foreground text-lg"
@@ -48,7 +48,7 @@ import SocialIcons from './SocialIcons.astro'
       >
         amrita.town
       </Link>
-      <div class="flex space-x-4">
+      <div class="flex space-x-3">
         <Link href="https://amrita.town/prev" class="text-foreground" external>
           ←
         </Link>
@@ -59,7 +59,6 @@ import SocialIcons from './SocialIcons.astro'
           →
         </Link>
       </div>
-    </div>
-    
+    </div>    
   </Container>
 </footer>
