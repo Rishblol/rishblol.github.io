@@ -15,51 +15,31 @@ import SocialIcons from './SocialIcons.astro'
         <span class="text-center text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} All rights reserved.
         </span>
+        <div class="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
+          <Link
+            href="https://amrita.town/"
+            class="text-foreground text-lg"
+            external
+            underline
+          >
+            amrita.town
+          </Link>
+          <Separator orientation="vertical" className="h-4" />
+          <div class="flex space-x-3">
+            <Link href="https://amrita.town/prev" class="text-foreground" external>
+              ←
+            </Link>
+            <Link href="https://amrita.town/random" class="text-foreground" external>
+              ⚅
+            </Link>
+            <Link href="https://amrita.town/next" class="text-foreground" external>
+              →
+            </Link>
+          </div>
         <Separator orientation="vertical" className="h-4" />
-        <p class="text-center text-sm text-muted-foreground">
-          Made with 🤍 using <Link
-            href="https://astro.build"
-            class="text-foreground"
-            external
-            underline>Astro</Link
-          > ,
-          <Link
-            href="https://tailwindcss.com"
-            class="text-foreground"
-            external
-            underline>Tailwind</Link
-          > , and
-          <Link
-            href="https://ui.shadcn.com"
-            class="text-foreground"
-            external
-            underline>shadcn/UI</Link
-          >.
-        </p>
       </div>
       <SocialIcons links={SOCIAL_LINKS} />
     </div>
-    <div class="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
-      <Link
-        href="https://amrita.town/"
-        class="text-foreground text-lg"
-        external
-        underline
-      >
-        amrita.town
-      </Link>
-      <Separator orientation="vertical" className="h-4" />
-      <div class="flex space-x-3">
-        <Link href="https://amrita.town/prev" class="text-foreground" external>
-          ←
-        </Link>
-        <Link href="https://amrita.town/random" class="text-foreground" external>
-          ⚅
-        </Link>
-        <Link href="https://amrita.town/next" class="text-foreground" external>
-          →
-        </Link>
-      </div>
     </div>     
   </Container>
 </footer>
