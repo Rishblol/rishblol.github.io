@@ -5,8 +5,9 @@ import Layout from '@/layouts/Layout.astro'
 
 <Layout title="Home">
   <Container class="flex flex-col items-center justify-center py-20 text-center px-4">
-    <h1 class="text-4xl font-bold">Hey there 👋</h1>
-    <p class="text-lg max-w-xl mt-4 leading-relaxed text-justify ">
+    <h1 id="changingText" class="text-4xl text-emerald-500 font-bold transition-opacity duration-1000 ease-in-out ">Hello</h1>
+
+    <p class="text-lg max-w-xl mt-4 leading-relaxed text-justify">
       I'm a student pursuing my bachelor's degree in computer science. 
       I love developing and exploring the internet in general, and this website is the testament of my love for it. 
     </p>
@@ -17,4 +18,21 @@ import Layout from '@/layouts/Layout.astro'
       Amidst all this, I'm a trained Hindustani Classical vocalist, play the guitar and harmonium, and play sports such as basketball in my free time.
     </p>
   </Container>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const words = ["Hello","नमस्ते","வணக்கம்","ਸਤ ਸ੍ਰੀ ਅਕਾਲ","હેલો","ನಮಸ್ಕಾರ", "ഹലോ"];
+      let index = 0;
+      const textElement = document.getElementById("changingText");
+
+      setInterval(() => {
+        textElement.style.opacity = 0;
+        setTimeout(() => {
+          index = (index + 1) % words.length;
+          textElement.textContent = words[index];
+          textElement.style.opacity = 1; 
+        }, 500);
+      }, 2500);
+    });
+  </script>
 </Layout>
