@@ -18,21 +18,4 @@ import Layout from '@/layouts/Layout.astro'
       Amidst all this, I'm a trained Hindustani Classical vocalist, play the guitar and harmonium, and play sports such as basketball in my free time.
     </p>
   </Container>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const words = ["Hello","नमस्ते","வணக்கம்","ਸਤ ਸ੍ਰੀ ਅਕਾਲ","હેલો","ನಮಸ್ಕಾರ", "ഹലോ"];
-      let index = 0;
-      const textElement = document.getElementById("changingText");
-
-      setInterval(() => {
-        textElement.style.opacity = 0;
-        setTimeout(() => {
-          index = (index + 1) % words.length;
-          textElement.textContent = words[index];
-          textElement.style.opacity = 1; 
-        }, 500);
-      }, 2500);
-    });
-  </script>
 </Layout>
