@@ -5,9 +5,6 @@ import Calendar, {
   type Props as ActivityCalendarProps,
 } from 'react-activity-calendar'
 
-// Adopted from https://github.com/grubersjoe/react-github-calendar
-// Copyright (c) 2019 Jonathan Gruber, MIT License
-
 interface Props extends Omit<ActivityCalendarProps, 'data' | 'theme'> {
   username: string
 }
@@ -56,7 +53,7 @@ const GithubCalendar: FunctionComponent<Props> = ({ username, ...props }) => {
           className="lg:w-48 h-auto w-24"
         />
         <p className="lg:w-64 w-48 text-center text-sm text-muted-foreground">
-          This component is down. Please email me!
+          This component is down
         </p>
       </div>
     )
@@ -70,7 +67,7 @@ const GithubCalendar: FunctionComponent<Props> = ({ username, ...props }) => {
     <>
       <div className="m-4 hidden sm:block">
         <Calendar
-          data={selectLastNDays(data.contributions, 133)}
+          data={selectLastNDays(data.contributions,165)}
           theme={{
             dark: ['#1A1A1A', '#10B981'],
           }}

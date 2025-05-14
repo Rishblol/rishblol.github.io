@@ -45,7 +45,7 @@ const SpotifyPresence = () => {
     )
   }
 
-  if (!displayData) return <p>Something absolutely horrible has gone wrong</p>
+  if (!displayData) return <p>The component is down rip</p>
 
   const { name: song, artist, album, image } = displayData
   const isNowPlaying = displayData['@attr']?.nowplaying === 'true'
@@ -62,10 +62,10 @@ const SpotifyPresence = () => {
       <div className="flex flex-col justify-between">
         <div className="flex items-center gap-2 text-sm text-primary">
           <FaSpotify />
-          <span>{isNowPlaying ? 'Now playing...' : 'Last played...'}</span>
+          <span>{isNowPlaying ? 'Now playing' : 'Last played'}</span>
         </div>
-        <div className="mt-2">
-          <p className="font-bold text-lg leading-tight">{song}</p>
+        <div className="mt-2 text-emerald-500">
+          <p className="font-bold text-lg leading-tight ">{song}</p>
           <p className="text-sm text-muted-foreground">
             <span className="font-semibold text-secondary-foreground">by</span>{' '}
             {artist['#text']}
