@@ -2,6 +2,7 @@
 import Container from '@/components/Container.astro'
 import Layout from '@/layouts/Layout.astro'
 import GithubCalendar from '@/components/ui/GithubCalendar'
+import SpotifyPresence from '@/components/ui/SpotifyPresence'
 ---
 
 <Layout title="Home">
@@ -19,7 +20,13 @@ import GithubCalendar from '@/components/ui/GithubCalendar'
       Amidst all this, I'm a trained Hindustani Classical vocalist, play the guitar and harmonium, and play sports such as basketball in my free time.
     </p>
   </Container>
-  <div class="border border-white rounded-xl p-8 w-fit mx-auto bg-black">
-  <GithubCalendar username="rishblol" client:load />
-  </div> 
+  <div class="flex flex-col md:flex-row justify-center gap-8 px-4 items-stretch">
+  <div class="border border-white rounded-xl p-8 bg-black w-full md:w-1/2 flex items-center justify-center">
+    <GithubCalendar username="rishblol" client:load />
+  </div>
+
+  <div class="border border-white rounded-xl p-8 bg-black w-full md:w-1/3 flex items-center justify-center">
+    <SpotifyPresence username="rishblol" client:load />
+  </div>
+</div>
 </Layout>
