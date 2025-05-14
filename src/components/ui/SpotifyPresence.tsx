@@ -45,7 +45,7 @@ const SpotifyPresence = () => {
     )
   }
 
-  if (!displayData) return <p>The component is down rip</p>
+  if (!displayData) return <p>Something went wrong, internal 404</p>
 
   const { name: song, artist, album, image } = displayData
   const isNowPlaying = displayData['@attr']?.nowplaying === 'true'
