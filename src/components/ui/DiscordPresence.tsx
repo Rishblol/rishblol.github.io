@@ -69,7 +69,7 @@ const DiscordPresence = () => {
               <AvatarComponent
                 src="/public/static/avatar.webp"
                 alt="Avatar"
-                fallback="e"
+                fallback="rishblol"
                 className="-mt-[4.5rem] aspect-square size-24 rounded-full"
               />
               <div
@@ -96,15 +96,6 @@ const DiscordPresence = () => {
                   <div className="size-2 rounded-full bg-background" />
                 )}
               </div>
-            </div>
-            <div className="flex items-center rounded-xl bg-secondary/50 px-2">
-              <img
-                src="/public/static/badges.png"
-                alt="Discord Badges"
-                width={104}
-                height={24}
-                className="grayscale"
-              />
             </div>
           </div>
           <div className="flex flex-col gap-y-1 rounded-xl bg-secondary/50 p-3">
