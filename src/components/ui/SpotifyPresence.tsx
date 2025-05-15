@@ -57,7 +57,7 @@ const SpotifyPresence = () => {
         alt="Album art"
         width={128}
         height={128}
-        className="rounded-xl border border-border grayscale"
+        className="rounded-xl border border-border"
       />
       <div className="flex flex-col justify-between">
         <div className="flex items-center gap-2 text-sm text-primary">
