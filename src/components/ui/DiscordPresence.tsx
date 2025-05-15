@@ -149,7 +149,7 @@ const DiscordPresence = () => {
             ) : (
               <div className="flex size-full flex-col items-center justify-center gap-1">
                 <div className="text-muted-foreground">
-                  Currently existing
+                  Connect with me on discord!
                 </div>
               </div>
             )}
