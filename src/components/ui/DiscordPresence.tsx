@@ -67,7 +67,7 @@ const DiscordPresence = () => {
           <div className="flex justify-between gap-x-1">
             <div className="relative">
               <AvatarComponent
-                src="/public/static/avatar.webp"
+                src="/static/avatar.webp"
                 alt="Avatar"
                 fallback="rishblol"
                 className="-mt-[4.5rem] aspect-square size-24 rounded-full"
