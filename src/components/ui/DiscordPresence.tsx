@@ -147,10 +147,14 @@ const DiscordPresence = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex size-full flex-col items-center justify-center gap-1">
-                <div className="text-muted-foreground">
-                  Connect with me on discord!
-                </div>
+                <div className="flex size-full flex-col items-center justify-center gap-1">
+                <img
+                  src="/static/car.png"
+                  alt="No Status Image"
+                  width={40}
+                  height={40}
+                  className="h-full w-fit rounded-lg"
+                />
               </div>
             )}
           </div>

@@ -1,0 +1,40 @@
+---
+title: 'CTF@CIT'
+description: 'Nice CTF with good web challenges'
+date: 2025-05-02
+image: './image.png'
+---
+
+## Introduction
+
+Hello! My name is Rishabh Lal, [rishblol](https://github.com/Rishblol) on Github and as you know by now, I love developing anything concerning the Internet.
+My journey started in 6th grade, when we were learning [QBASIC](https://www.qbasic.net/) and just seeing that unique, rustic UI of it (even though it wasn't a lot), I just fell in love with it.
+Fast forward to 10th grade, I started learning Java and was introduced to Object Oriented Programming concepts, something which did take time to learn and get used to, coming from languages like Visual BASIC and C.\
+Then in 11-12th I was introduced to python and loved it the second I started learning it. During 12th grade my friends and I created a Flask app which was a stocks handling website. It was a great learning curve but we enjoyed making that. Prior to that we'd made a app using Streamlit for data analysis.
+In college, my friends and I made a project using frameworks such as Next.js to create a website where we showcased car models and could customize it.
+
+Now for the main question- why the website?
+
+# keeping up with the credentials
+
+## Question
+
+I'm all about strong passwords. If you're not using one, you're just playing yourself.
+
+This challenge requires something that can be acquired in any of the other web challenges.
+
+## Solution
+
+Here we've been given with a website looking like this.
+
+ ![](/5341411f-58fd-4f6b-be7b-497c543e3565.png " =1919x874")
+
+Since we obtained the credentials of `admin:9f3IC3uj9^zZ` from @[breaking authentication](mention://575ed52d-d831-46b9-a70b-afad2ee03550/document/7bf4b60e-7a20-4606-9aa5-b092e8c12ebf) challenge, we try to login and we get to a debug page, which is not that useful.
+
+Now usually when we login it's a `GET` request
+
+ ![](/5f588eb5-151b-4915-a47e-3198676345af.png " =1485x572")
+
+Let's just try changing that to a POST request, and it'll send a `302 found` of `/admin.php` and going to `/admin.php` we get the flag.
+
+ ![](/e8885cb2-844e-402d-a054-9cf255b14fc2.png)
