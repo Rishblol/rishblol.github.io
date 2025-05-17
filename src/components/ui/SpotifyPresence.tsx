@@ -47,7 +47,7 @@ const SpotifyPresence = () => {
 
   if (!displayData) return <p>Something went wrong, internal 404</p>
 
-  const { name: song, artist, album, image } = displayData
+  const { name: song, artist, album, image,url } = displayData
   const isNowPlaying = displayData['@attr']?.nowplaying === 'true'
 
   return (
@@ -64,8 +64,8 @@ const SpotifyPresence = () => {
           <FaSpotify />
           <span>{isNowPlaying ? 'Now playing' : 'Last played'}</span>
         </div>
-        <div className="mt-2 text-emerald-500">
-          <p className="font-bold text-lg leading-tight ">{song}</p>
+        <div className="mt-2 text-emerald-500 ">
+          <a className="font-bold text-lg leading-tight" href={url}>{song}</a>
           <p className="text-sm text-muted-foreground">
             <span className="font-semibold text-secondary-foreground">by</span>{' '}
             {artist['#text']}
