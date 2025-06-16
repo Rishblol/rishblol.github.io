@@ -7,8 +7,9 @@ import DiscordPresence from '@/components/ui/DiscordPresence'
 import QuoteBox from '@/components/QuoteBox.astro'
 import { getCollection } from 'astro:content';
 
-const projectEntries = await Astro.glob('../content/projects/*.md');
+const projectEntries = await getCollection('projects');
 const blogEntries = await getCollection('blog');
+
 blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
@@ -45,12 +46,12 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
         <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full">
           <h2 class="text-2xl font-bold text-emerald-500 mb-2">/projects</h2>
           <ul class="space-y-4">
-            {projectEntries.slice(0,2).map(project => (
+            {projectEntries.slice(0, 2).map(project => (
               <li class="border border-emerald-500 rounded-lg p-4">
-                <a href={project.frontmatter.link} class="text-lg font-semibold text-white hover:underline" target="_blank">
-                  {project.frontmatter.name}
+                <a href={project.data.link} class="text-lg font-semibold text-white hover:underline" target="_blank">
+                  {project.data.name}
                 </a>
-                <p class="text-gray-300">{project.frontmatter.description}</p>  
+                <p class="text-gray-300">{project.data.description}</p>  
               </li>
             ))}
           </ul>
@@ -59,20 +60,10 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       <div class="md:col-span-2 mt-6 border border-emerald-500 rounded-xl p-4">
-      <GithubCalendar username="rishblol" client:load/>
+        <GithubCalendar username="rishblol" client:load/>
       </div>
       <div class="md:col-span-1 mt-6 border border-emerald-500 rounded-xl p-4">
-        <h2 class="text-2xl font-bold text-emerald-500 mb-2">/blog</h2>
-          <ul class="space-y-4">
-            {blogEntries.slice(0, 2).map(post => (
-            <li class="border border-emerald-500 rounded-lg p-2">
-              <a href={`/blog/${post.slug}`} class="text-lg font-semibold text-white hover:underline">
-                {post.data.title}
-              </a>
-              <p class="text-gray-300">{post.data.description}</p>
-            </li>
-          ))}
-          </ul>
+        <p>Under construction, will think what to add here lmao</p>
       </div>
     </div>
   </Container>
