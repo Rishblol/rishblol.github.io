@@ -8,8 +8,8 @@ import QuoteBox from '@/components/QuoteBox.astro'
 import { getCollection } from 'astro:content';
 
 const projectEntries = await getCollection('projects');
-const blogEntries = await getCollection('blog');
 
+const blogEntries = await getCollection('blog');
 blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
@@ -17,10 +17,10 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   <Container class="py-16 px-4 w-full max-w-screen-xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       <div class="space-y-6">
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full">
+        <div class="border border-emerald-500  p-4 bg-black w-full">
           <DiscordPresence client:load />
         </div>
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full flex justify-center">
+        <div class="border border-emerald-500  p-4 bg-black w-full flex justify-center">
           <QuoteBox/>
         </div>
       </div>
@@ -28,8 +28,8 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       <div class="text-center md:text-justify">
         <h1 id="changingText" class="text-4xl text-emerald-500 font-bold mb-4">Hello There</h1>
         <p class="text-lg leading-relaxed mb-4">
-          I am a student pursuing my bachelor's degree in computer science. 
-          I love developing and exploring the internet in general, and this website is the testament of my love for it. 
+          I am a student pursuing my bachelor's degree in computer science.
+          I love developing and exploring the internet in general, and this website is the testament of my love for it.
         </p>
         <p class="text-lg leading-relaxed mb-4">
           I am also a CTF player for bi0sblr, and currently in the domain of web exploitation. I also love making and rendering models and animations on Blender.
@@ -40,18 +40,18 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       </div>
 
       <div class="space-y-6">
-        <div class="border border-emerald-500 rounded-xl p-3 bg-black w-full">
+        <div class="border border-emerald-500  p-3 bg-black w-full">
           <SpotifyPresence username="rishblol" client:load />
         </div>
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full">
+        <div class="border border-emerald-500  p-4 bg-black w-full">
           <h2 class="text-2xl font-bold text-emerald-500 mb-2">/projects</h2>
           <ul class="space-y-4">
-            {projectEntries.slice(0, 2).map(project => (
-              <li class="border border-emerald-500 rounded-lg p-4">
+            {projectEntries.slice(0,2).map(project => (
+              <li class="border border-emerald-500  p-4">
                 <a href={project.data.link} class="text-lg font-semibold text-white hover:underline" target="_blank">
                   {project.data.name}
                 </a>
-                <p class="text-gray-300">{project.data.description}</p>  
+                <p class="text-gray-300">{project.data.description}</p>
               </li>
             ))}
           </ul>
@@ -59,11 +59,21 @@ blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-      <div class="md:col-span-2 mt-6 border border-emerald-500 rounded-xl p-4">
-        <GithubCalendar username="rishblol" client:load/>
+      <div class="md:col-span-2 mt-6 border border-emerald-500  p-4">
+      <GithubCalendar username="rishblol" client:load/>
       </div>
-      <div class="md:col-span-1 mt-6 border border-emerald-500 rounded-xl p-4">
-        <p>Under construction, will think what to add here lmao</p>
+      <div class="md:col-span-1 mt-6 border border-emerald-500  p-4">
+        <h2 class="text-2xl font-bold text-emerald-500 mb-2">/blog</h2>
+          <ul class="space-y-4">
+            {blogEntries.slice(0, 2).map(post => (
+            <li class="border border-emerald-500  p-2">
+              <p class="text-lg font-semibold text-white">
+                {post.data.title}
+              </p>
+              <p class="text-gray-300">{post.data.description}</p>
+            </li>
+          ))}
+          </ul>
       </div>
     </div>
   </Container>
