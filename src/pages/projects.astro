@@ -12,17 +12,10 @@ const projects = await getCollection('projects')
 
 <Layout title="About" description={SITE.DESCRIPTION}>
   <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+    <Breadcrumbs items={[{ label: 'Projects', icon: 'lucide:info' }]} />
 
     <section>
       <div class="min-w-full">
-        <div class="prose prose-neutral mb-8 dark:prose-invert">
-          <p>
-            Here are some of my projects which I've done till now 👇
-          </p>
-        </div>
-
-        <h2 class="mb-4 text-2xl font-semibold text-emerald-500">My Projects</h2>
         <div class="flex flex-col gap-4">
           {projects.map((project) => <ProjectCard project={project} />)}
         </div>
