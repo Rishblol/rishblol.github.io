@@ -5,6 +5,8 @@ import GithubCalendar from '@/components/ui/GithubCalendar'
 import SpotifyPresence from '@/components/ui/SpotifyPresence'
 import DiscordPresence from '@/components/ui/DiscordPresence'
 import QuoteBox from '@/components/QuoteBox.astro'
+import Aurora from '@/components/Aurora'
+import TextType from '@/components/TextType';
 import { getCollection } from 'astro:content';
 
 const projectEntries = await getCollection('projects');
@@ -13,68 +15,188 @@ const blogEntries = await getCollection('blog');
 blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Layout title="Home">
-  <Container class="py-16 px-4 w-full max-w-screen-xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-      <div class="space-y-6">
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full">
-          <DiscordPresence client:load />
-        </div>
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full flex justify-center">
-          <QuoteBox/>
-        </div>
-      </div>
-
-      <div class="text-center md:text-justify">
-        <h1 id="changingText" class="text-4xl text-emerald-500 font-bold mb-4">Hello There</h1>
-        <p class="text-lg leading-relaxed mb-4">
-          I am a pre-final student pursuing my bachelor's degree in computer science.
-          I love developing and exploring the internet in general, and this website is the testament of my love for it.
-        </p>
-        <p class="text-lg leading-relaxed mb-4">
-          I am also a CTF player for bi0sblr, and currently the domain lead for web exploitation. I also love making and rendering models and animations on Blender.
-        </p>
-        <p class="text-lg leading-relaxed">
-          Amidst all this, I am also a trained Hindustani Classical vocalist, a guitarist, and a harmonium player, and I enjoy playing sports like basketball in my free time.
-        </p>
-      </div>
-
-      <div class="space-y-6">
-        <div class="border border-emerald-500 rounded-xl p-3 bg-black w-full">
-          <SpotifyPresence username="rishblol" client:load />
-        </div>
-        <div class="border border-emerald-500 rounded-xl p-4 bg-black w-full">
-          <h2 class="text-2xl font-bold text-emerald-500 mb-2">/projects</h2>
-          <ul class="space-y-4">
-            {projectEntries.slice(0,2).map(project => (
-              <li class="border border-emerald-500 rounded-xl p-4">
-                <a href={project.data.link} class="text-lg font-semibold text-white hover:underline" target="_blank">
-                  {project.data.name}
-                </a>
-                <p class="text-gray-300">{project.data.description}</p>
-              </li>
-            ))}
-          </ul>
+<Layout title="Home" description="Welcome to my personal website">
+  <div class="absolute top-0 left-0 right-0 h-screen -z-50 overflow-hidden">
+    <Aurora 
+      colorStops={["#10b981", "#0000FF", "#047857"]}
+      blend={0.4}
+      amplitude={0.6}
+      speed={0.8}
+      client:load
+    />
+  </div>
+  
+  <Container class="py-8 md:py-16 px-4 w-full max-w-screen-xl mx-auto relative z-10">
+    <div class="relative mb-16 md:mb-24">
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-emerald-500/10 blur-3xl -z-10"></div>
+      <div class="text-center space-y-6 py-12">
+        <div class="inline-block">
+          <h1 id="changingText" class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500 bg-clip-text text-transparent">
+            <TextType 
+              text={["Hello There", "Welcome", "Nice to meet you"]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor={true}
+              cursorCharacter="|"
+              loop={true}
+              client:load
+            />
+          </h1>
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-      <div class="md:col-span-2 mt-6 border border-emerald-500 rounded-xl p-4">
-      <GithubCalendar username="rishblol" client:load/>
-      </div>
-      <div class="md:col-span-1 mt-6 border border-emerald-500 rounded-xl p-4">
-        <h2 class="text-2xl font-bold text-emerald-500 mb-2">/blog</h2>
-          <ul class="space-y-4">
-            {blogEntries.slice(0, 2).map(post => (
-            <li class="border border-emerald-500 rounded-xl p-4">
-              <p class="text-lg font-semibold text-white">
-                {post.data.title}
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 mb-6">
+      <div class="md:col-span-7 md:row-span-2 group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 md:p-8 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="h-8 w-1 bg-gradient-to-b from-emerald-500 to-teal-500"></div>
+              <h2 class="text-3xl font-bold text-emerald-400">About Me</h2>
+            </div>
+            <div class="space-y-4 text-gray-300 leading-relaxed">
+              <p class="text-lg">
+                I am a <span class="text-emerald-400 font-semibold">pre-final student</span> pursuing my bachelor's degree in computer science.
+                I love developing and exploring the internet in general, and this website is the testament of my love for it.
               </p>
-              <p class="text-gray-300">{post.data.description}</p>
-            </li>
-          ))}
-          </ul>
+              <p class="text-lg">
+                I am also a <span class="text-emerald-400 font-semibold">CTF player for bi0sblr</span>, and currently the domain lead for web exploitation. 
+                I also love making and rendering models and animations on <span class="text-emerald-400 font-semibold">Blender</span>. 
+                I'm recently starting to explore the world of game development by making games on the <span class="text-emerald-400 font-semibold">Godot engine</span>.
+              </p>
+              <p class="text-lg">
+                Amidst all this, I am also a trained <span class="text-emerald-400 font-semibold">Hindustani Classical vocalist</span>, 
+                a guitarist, and a harmonium player, and I enjoy playing sports like basketball in my free time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discord Presence -->
+      <div class="md:col-span-5 group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 hover:scale-[1.02] overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <DiscordPresence client:load />
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote Box -->
+      <div class="md:col-span-5 group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 hover:scale-[1.02] overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex items-center justify-center h-full">
+            <QuoteBox/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects and Spotify Row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+      <!-- Projects -->
+      <div class="group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold text-emerald-400">/projects</h2>
+              <a href="/projects" class="text-sm text-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-1">
+                View all
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <ul class="space-y-3">
+              {projectEntries.slice(0,2).map(project => (
+                <li class="border border-emerald-500/20 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300 hover:translate-x-1 bg-black/30">
+                  <a href={project.data.link} class="text-lg font-semibold text-white hover:text-emerald-400 transition-colors" target="_blank">
+                    {project.data.name}
+                  </a>
+                  <p class="text-gray-400 text-sm mt-1">{project.data.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spotify -->
+      <div class="group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <SpotifyPresence client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Calendar and Blog Row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div class="md:col-span-2 group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <GithubCalendar username="rishblol" client:load/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog -->
+      <div class="md:col-span-1 group">
+        <div class="relative h-full border border-emerald-500/30 rounded-2xl p-6 bg-gradient-to-br from-black/40 to-emerald-950/20 backdrop-blur-sm hover:border-emerald-500/60 transition-all duration-500 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold text-emerald-400">/blog</h2>
+              <a href="/blog" class="text-sm text-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-1">
+                View all
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <ul class="space-y-3">
+              {blogEntries.slice(0, 2).map(post => (
+                <li class="border border-emerald-500/20 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300 hover:translate-x-1 bg-black/30">
+                  <a href={`/blog/${post.id}`} class="text-base font-semibold text-white hover:text-emerald-400 transition-colors line-clamp-2">
+                    {post.data.title}
+                  </a>
+                  <p class="text-gray-400 text-sm mt-1 line-clamp-2">{post.data.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </Container>
 </Layout>
+
+<style>
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

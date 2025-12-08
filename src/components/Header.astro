@@ -8,14 +8,14 @@ import { NAV_LINKS, SITE } from '@/consts'
 ---
 
 <header
-  class="sticky top-0 z-10 bg-background/100"
+  class="sticky top-0 z-10"
   transition:persist
 >
   <Container>
     <div class="flex flex-wrap items-center justify-between gap-4 py-4">
       <Link
         href="/"
-        class="flex flex-shrink-0 items-center gap-2 text-xl text-emerald-500 font-semibold transition-colors duration-300 hover:text-primary"
+        class="flex flex-shrink-0 items-center gap-2 text-xl text-black font-semibold transition-colors duration-300 hover:text-primary"
       >
         {SITE.TITLE}
       </Link>
@@ -25,7 +25,7 @@ import { NAV_LINKS, SITE } from '@/consts'
             NAV_LINKS.map((item) => (
               <Link
                 href={item.href}
-                class="capitalize text-foreground/60 transition-colors hover:text-foreground/80"
+                class="capitalize text-foreground/80 transition-colors hover:text-foreground/100"
               >
                 {item.label}
               </Link>
@@ -33,7 +33,6 @@ import { NAV_LINKS, SITE } from '@/consts'
           }
         </nav>
         <MobileMenu client:load transition:persist />
-        <!-- <ModeToggle client:load transition:persist /> -->
       </div>
     </div>
   </Container>

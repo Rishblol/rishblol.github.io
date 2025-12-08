@@ -149,7 +149,7 @@ const DiscordPresence = () => {
             ) : (
                 <div className="flex size-full flex-col items-center justify-center gap-1">
                 <img
-                  src="/static/car.png"
+                  src="/static/donut.png"
                   alt="No Status Image"
                   width={40}
                   height={40}
