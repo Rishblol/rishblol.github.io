@@ -53,7 +53,7 @@ const authors = await parseAuthors(entry.data.authors ?? [])
       >
         {
           authors.length > 0 && (
-            <>
+            <Fragment>
               {authors.map((author) => (
                 <div class="flex items-center gap-x-1.5">
                   <AvatarComponent
@@ -67,7 +67,7 @@ const authors = await parseAuthors(entry.data.authors ?? [])
                 </div>
               ))}
               <Separator orientation="vertical" className="h-4" />
-            </>
+            </Fragment>
           )
         }
         <span>{formattedDate}</span>

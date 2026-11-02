@@ -32,7 +32,7 @@ const { items, class: className } = Astro.props
     </BreadcrumbItem>
     {
       items.map((item, index) => (
-        <>
+        <Fragment>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             {index === items.length - 1 ? (
@@ -51,7 +51,7 @@ const { items, class: className } = Astro.props
               </BreadcrumbLink>
             )}
           </BreadcrumbItem>
-        </>
+        </Fragment>
       ))
     }
   </BreadcrumbList>

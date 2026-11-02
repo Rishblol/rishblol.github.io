@@ -91,7 +91,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
         >
           {
             authors.length > 0 && (
-              <>
+              <Fragment>
                 <div class="flex items-center gap-x-2">
                   {authors.map((author) => (
                     <div class="flex items-center gap-x-1.5">
@@ -117,7 +117,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
                   ))}
                 </div>
                 <Separator orientation="vertical" className="h-4" />
-              </>
+              </Fragment>
             )
           }
           <div class="flex items-center gap-2">
